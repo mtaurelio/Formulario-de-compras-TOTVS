@@ -1,0 +1,24 @@
+function validateForm(form) {
+  let mensagem = "";
+  if (form.getValue("nome") == "") {
+    mensagem += "Campo nome precisa ser preenchido!";
+  }
+  if (form.getValue("setor") == "") {
+    mensagem += "Campo telefone precisa ser preenchido!";
+  }
+  if (form.getValue("telefone") == "") {
+    mensagem += "Campo Identidade precisa ser preenchido!";
+  }
+  if (form.getValue("email") == "") {
+    mensagem += "Campo data de nascimento precisa ser preenchido!";
+  }
+  if (form.getValue("produto") == "") {
+    mensagem += "Campo Tipo do ponto precisa ser preenchido!";
+  }
+  if (form.getValue("quantidade") == "") {
+    mensagem += "Campo CEP precisa ser preenchido!";
+  }
+  if (mensagem != "") {
+    throw mensagem;
+  }
+}
