@@ -24,7 +24,6 @@
 							<div class="panel-heading">
 								<h3 class="panel-title"><i class="fluigicon fluigicon-group icon-md" aria-hidden="true"></i> Dados do Solicitante</h3>
 							</div>
-							<!-- <div class="panel-body"> </div> -->
 							<div class="form-group col-md-4">
 								<label for="nome">Nome</label>
 								<input type="text" name="nome" id="nome" class="form-control">
@@ -108,23 +107,39 @@
 						<div class="panel-heading">
 							<h3 class="panel-title">
 								<i class="fluigicon fluigicon-check-circle-on icon-md" aria-hidden="true"></i>
-								</i>
 								Aprovação Gestor
 							</h3>
 						</div>
 						<div class="form-group col-md-2">
 							<label>Status da Aprovação:</label><br>
 
-							<input type="radio" id="aprovado" name="status" value="aprovado">
-							<label for="aprovado">Aprovado</label>
+							<!-- Botões estilizados -->
+							<div class="btn-group" role="group">
+								<button type="button" class="btn btn-success" id="btnAprovado" onclick="setStatus('aprovado')">
+									Aprovado
+								</button>
+								<button type="button" class="btn btn-danger" id="btnReprovado" onclick="setStatus('reprovado')">
+									Reprovado
+								</button>
+							</div>
 
-							<input type="radio" id="reprovado" name="status" value="reprovado">
-							<label for="reprovado">Reprovado</label>
+							<!-- Campo oculto para armazenar o valor selecionado -->
+							<input type="hidden" name="status" id="status" value="">
 						</div>
 					</div>
+				</div>
+
+				<style>
+					.btn.active {
+						box-shadow: 0px 0px 5px #000;
+						font-weight: bold;
+					}
+				</style>
+
 
 			</form>
 		</div>
+		<script src="solicitacao_de_compras.js"></script>
 	</body>
 
 </html>

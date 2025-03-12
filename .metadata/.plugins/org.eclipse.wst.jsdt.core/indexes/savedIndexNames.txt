@@ -5,6 +5,7 @@ INDEX VERSION 1.3+C:\Users\Matheus Aurélio\Projetos Fluig\Compras TOTVS\.metadat
 2784091.index
 2447113941.index
 3269492121.index
+2018123733.index
 199048906.index
 3749485028.index
 1489119978.index
