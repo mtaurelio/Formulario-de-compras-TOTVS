@@ -6,6 +6,8 @@
 	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
 	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+
+	<script type='text/javascript' src='/webdesk/vcXMLRPC.js'></script>
 </head>
 
 <form name="form" role="form" onsubmit="return validateForm()">
@@ -66,30 +68,46 @@
 						</div>
 
 						<div class="form-group col-md-4">
-							<label for="produto"> Produto</label>
-							<select name="produto" id="produto" class="form-control">
-								<option value="">Selecione um produto</option>
-								<option value="001">Teclado Logitech - R$ 150,00 (Código: 001)</option>
-								<option value="002">Mouse Logitech - R$ 120,00 (Código: 002)</option>
-								<option value="003">Monitor 24'' - R$ 850,00 (Código: 003)</option>
-								<option value="004">Notebook Dell - R$ 4500,00 (Código: 004)</option>
-								<option value="005">Cadeira escritório - R$ 900,00 (Código: 005)</option>
-								<option value="006">Fone Headset - R$ 300,00 (Código: 006)</option>
-								<option value="007">SSD 1TB - R$ 400,00 (Código: 007)</option>
-								<option value="008">Caneta Bic - R$ 1,00 (Código: 008)</option>
-								<option value="009">Lapis B2 - R$ 00,90 (Código: 009)</option>
-								<option value="010">Porta Lápis - R$ 30,00 (Código: 010)</option>
-							</select>
+							<label for="produto">Produto</label>
+							<input type="zoom" class="form-control" id="zoom" name="zoom" data-zoom="{
+									'displayKey': 'descricao',
+									'datasetId': 'ds_produtos',
+									'maximumSelectionLength': '3',
+									'placeholder': 'Selecione o produto',
+									'fields': [
+											{
+													'field': 'codigo',
+													'label': 'Código'
+											},
+											{
+													'field': 'descricao',
+													'label': 'Descrição',
+													'standard': 'true'
+											},
+											{
+													'field': 'preco',
+													'label': 'Preço'
+											}
+									]
+							}" />
 						</div>
+
+
+
 
 						<div class="form-group col-md-2">
 							<label for="quantidade">Quantidade </label>
 							<input type="number" name="quantidade" id="quantidade" class="form-control">
 						</div>
 
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-5">
 							<label for="info">Informações adicionais </label>
 							<textarea rows="5" name="info" id="info" class="form-control"></textarea>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="total">Total da Solicitação (R$)</label>
+							<input type="text" name="total" id="total" class="form-control" readonly>
 						</div>
 
 					</div>
