@@ -1,11 +1,7 @@
 function setStatus(status) {
   document.getElementById("status").value = status;
-
-  // Remove estilos ativos de ambos os botões
   document.getElementById("btnAprovado").classList.remove("active");
   document.getElementById("btnReprovado").classList.remove("active");
-
-  // Adiciona a classe "active" ao botão clicado
   if (status === "aprovado") {
     document.getElementById("btnAprovado").classList.add("active");
   } else {
@@ -15,11 +11,10 @@ function setStatus(status) {
 
 // CALCULO DA SOLICITAÇÃO
 document.addEventListener("DOMContentLoaded", function () {
-  const produtoSelect = document.getElementById("produto");
   const quantidadeInput = document.getElementById("quantidade");
   const totalInput = document.getElementById("total");
+  let produtoSelecionado = "";
 
-  // Lista de preços dos produtos
   const precos = {
     "001": 150.0,
     "002": 120.0,
@@ -34,18 +29,20 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   function calcularTotal() {
-    const produtoSelecionado = produtoSelect.value;
     const quantidade = parseInt(quantidadeInput.value) || 0;
-
     if (produtoSelecionado && precos[produtoSelecionado]) {
-      const total = precos[produtoSelecionado] * quantidade;
-      totalInput.value = total.toFixed(2);
+      totalInput.value = (precos[produtoSelecionado] * quantidade).toFixed(2);
     } else {
       totalInput.value = "";
     }
   }
 
-  // Atualizar total quando mudar o produto ou a quantidade
-  produtoSelect.addEventListener("change", calcularTotal);
+  window.setSelectedZoomItem = function (selectedItem) {
+    if (selectedItem.inputId === "produtoZoom") {
+      produtoSelecionado = selectedItem.codigo;
+      calcularTotal();
+    }
+  };
+
   quantidadeInput.addEventListener("input", calcularTotal);
 });
